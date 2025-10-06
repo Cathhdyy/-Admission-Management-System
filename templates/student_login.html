@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Student Portal Login - Admission Management System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white text-center">
+                <h3 class="card-title mb-0">
+                    <i class="fas fa-user-graduate me-2"></i>
+                    Student Portal Login
+                </h3>
+            </div>
+            <div class="card-body">
+                <p class="text-muted text-center mb-4">
+                    Access your application and update your information
+                </p>
+                
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="application_id" class="form-label">Application ID</label>
+                        <input type="text" class="form-control" id="application_id" name="application_id" 
+                               placeholder="e.g., ADM20251006001" required>
+                        <div class="form-text">You received this ID via email after applying</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" 
+                               placeholder="Your registered email" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-sign-in-alt me-2"></i>
+                            Access Portal
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-3 text-center">
+                    <a href="{{ url_for('apply') }}" class="text-decoration-none">
+                        <i class="fas fa-file-alt me-1"></i>
+                        Don't have an Application ID? Apply Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

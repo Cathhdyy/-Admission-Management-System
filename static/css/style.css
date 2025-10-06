@@ -1,0 +1,193 @@
+/* Custom styles for Admission Management System */
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-bg: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+/* Step Numbers */
+.step-number {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Forms */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.btn-lg {
+    padding: 0.75rem 2rem;
+}
+
+/* Navigation */
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* Table */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-responsive {
+    border-radius: 8px;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.35em 0.65em;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 10px;
+    border: none;
+}
+
+.modal-header {
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* Loading spinner */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Alert customization */
+.alert {
+    border-radius: 8px;
+    border: none;
+}
+
+/* File upload styling */
+.form-control[type="file"] {
+    padding: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 0;
+        margin: 1rem;
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .btn-lg {
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Status-specific colors */
+.status-pending {
+    color: var(--warning-color);
+}
+
+.status-accepted {
+    color: var(--success-color);
+}
+
+.status-rejected {
+    color: var(--danger-color);
+}
+
+/* Dashboard cards */
+.card.bg-primary,
+.card.bg-success,
+.card.bg-warning,
+.card.bg-danger {
+    background: linear-gradient(45deg, var(--primary-color), #4c63d2) !important;
+}
+
+.card.bg-success {
+    background: linear-gradient(45deg, var(--success-color), #20c997) !important;
+}
+
+.card.bg-warning {
+    background: linear-gradient(45deg, var(--warning-color), #fd7e14) !important;
+}
+
+.card.bg-danger {
+    background: linear-gradient(45deg, var(--danger-color), #e55353) !important;
+}

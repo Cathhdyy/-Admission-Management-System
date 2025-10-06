@@ -1,0 +1,94 @@
+Build a fully functional Admission Management System web application using Python (Flask) or Node.js (Express) with a frontend in HTML, CSS, and JavaScript, and a SQLite or MySQL database. The project should be well-structured, responsive, and easy to understand.
+
+📘 Project Title:
+
+Admission Management System
+
+🎯 Description:
+
+Create a complete Admission Management System for a school/college where administrators can manage student admissions efficiently. The system should allow students to apply online, and admins to review, accept, or reject applications through a dashboard.
+
+🏗️ Features & Requirements:
+👨‍🎓 Student Side:
+
+A homepage with basic information about the institution and a button to “Apply Now”.
+
+A student registration form collecting:
+
+Full Name
+
+Date of Birth
+
+Gender
+
+Email & Phone
+
+Address
+
+Course/Program selection
+
+Previous academic details
+
+Document upload (PDF/Images for mark sheets, certificates)
+
+Form validation (frontend + backend) and success message after submission.
+
+A unique Application ID generated for each submission.
+
+A page to check application status using the Application ID.
+
+🛠️ Admin Side:
+
+Admin login page with username and password.
+
+Dashboard showing:
+
+Total applications
+
+Pending, Accepted, and Rejected applications
+
+Manage Applications:
+
+View details of each applicant
+
+Change status (Pending → Accepted/Rejected)
+
+Add admin notes/comments
+
+Search and filter applications by name, course, or status.
+
+Download applicant data as CSV.
+
+Option to send email notification on status change (bonus feature).
+
+🗃️ Database Structure:
+
+students table: id, name, dob, gender, email, phone, address, course, documents_path, status, application_id
+
+admins table: id, username, password (hashed)
+
+🎨 Frontend:
+
+Clean, responsive, and user-friendly UI with a navbar and footer.
+
+Use Bootstrap or Tailwind CSS for styling.
+
+Use modals or separate pages for form submissions and application details.
+
+🔒 Security & Validation:
+
+Hash admin passwords before storing.
+
+Validate all user inputs on both client and server sides.
+
+Protect admin routes with authentication middleware.
+
+Application ID Delivery: SMTP Email (Email address: testmaillle699@gmail.com Password : sanskarsharma)
+
+After a student submits the admission form, the system must:
+
+Generate a unique Application ID (e.g., ADM20251006001).
+
+Send this Application ID via email to the student’s registered email address with a message like:
+
+“Thank you for applying <name>! Your Application ID is ADM20251006001. Use this ID to check your admission status.”

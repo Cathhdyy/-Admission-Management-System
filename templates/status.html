@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}Application Status - Admission Management System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card shadow">
+            <div class="card-header bg-info text-white">
+                <h3 class="card-title mb-0">
+                    <i class="fas fa-search me-2"></i>
+                    Check Application Status
+                </h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="application_id" class="form-label">Application ID</label>
+                        <input type="text" class="form-control" id="application_id" name="application_id" 
+                               placeholder="Enter your Application ID (e.g., ADM20251006001)" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-info">
+                            <i class="fas fa-search me-2"></i>
+                            Check Status
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if application_data %}
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-8">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                <h4 class="card-title mb-0">
+                    <i class="fas fa-user me-2"></i>
+                    Application Details
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <strong>Application ID:</strong>
+                        <span class="badge bg-primary ms-2">{{ application_data[11] }}</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Status:</strong>
+                        {% if application_data[10] == 'Pending' %}
+                            <span class="badge bg-warning">{{ application_data[10] }}</span>
+                        {% elif application_data[10] == 'Accepted' %}
+                            <span class="badge bg-success">{{ application_data[10] }}</span>
+                        {% else %}
+                            <span class="badge bg-danger">{{ application_data[10] }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <strong>Full Name:</strong> {{ application_data[1] }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Email:</strong> {{ application_data[4] }}
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <strong>Course:</strong> {{ application_data[7] }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Applied On:</strong> {{ application_data[12][:10] }}
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <strong>Document Status:</strong>
+                        {% if application_data[14] == 'Pending' or not application_data[14] %}
+                            <span class="badge bg-warning">Pending</span>
+                        {% elif application_data[14] == 'Verified' %}
+                            <span class="badge bg-success">Verified</span>
+                        {% else %}
+                            <span class="badge bg-danger">Rejected</span>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                {% if application_data[15] %}
+                <div class="alert alert-warning">
+                    <strong>Document Notes:</strong><br>
+                    {{ application_data[15] }}
+                </div>
+                {% endif %}
+                
+                {% if application_data[13] %}
+                <div class="alert alert-info">
+                    <strong>Admin Notes:</strong><br>
+                    {{ application_data[13] }}
+                </div>
+                {% endif %}
+                
+                {% if application_data[10] == 'Accepted' %}
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <strong>Congratulations!</strong> Your application has been accepted. 
+                    You will receive further instructions via email.
+                </div>
+                {% elif application_data[10] == 'Rejected' %}
+                <div class="alert alert-danger">
+                    <i class="fas fa-times-circle me-2"></i>
+                    <strong>Application Rejected.</strong> Thank you for your interest. 
+                    You may apply again in the next admission cycle.
+                </div>
+                {% else %}
+                <div class="alert alert-warning">
+                    <i class="fas fa-clock me-2"></i>
+                    <strong>Under Review.</strong> Your application is being reviewed. 
+                    You will be notified once a decision is made.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

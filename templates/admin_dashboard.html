@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - Admission Management System{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>
+        <i class="fas fa-tachometer-alt me-2"></i>
+        Admin Dashboard
+    </h2>
+    <div>
+        <span class="text-muted">Welcome, {{ session.admin_username }}</span>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-4">
+    <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ total }}</h4>
+                        <p class="card-text">Total Applications</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-file-alt fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ pending }}</h4>
+                        <p class="card-text">Pending Reviews</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-clock fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ accepted }}</h4>
+                        <p class="card-text">Accepted</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card bg-danger text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ rejected }}</h4>
+                        <p class="card-text">Rejected</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-times-circle fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row">
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-tasks me-2"></i>
+                    Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('admin_applications') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-list me-2"></i>
+                        View All Applications
+                    </a>
+                    <a href="{{ url_for('admin_applications', status='Pending') }}" class="btn btn-outline-warning">
+                        <i class="fas fa-clock me-2"></i>
+                        Review Pending Applications
+                    </a>
+                    <a href="{{ url_for('admin_analytics') }}" class="btn btn-outline-info">
+                        <i class="fas fa-chart-line me-2"></i>
+                        Analytics Dashboard
+                    </a>
+                    <a href="{{ url_for('export_csv') }}" class="btn btn-outline-success">
+                        <i class="fas fa-download me-2"></i>
+                        Export Data (CSV)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    System Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <p><strong>System Status:</strong> <span class="badge bg-success">Online</span></p>
+                <p><strong>Last Login:</strong> Just now</p>
+                <p><strong>Version:</strong> 1.0.0</p>
+                <hr>
+                <p class="text-muted small">
+                    <i class="fas fa-shield-alt me-1"></i>
+                    All data is securely stored and protected.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

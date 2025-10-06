@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Admission Management System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto text-center">
+        <!-- Hero Section -->
+        <div class="hero-section mb-5">
+            <h1 class="display-4 fw-bold text-primary mb-3">
+                <i class="fas fa-graduation-cap"></i>
+                Welcome to Our Institution MADE BY SANSKAR SHARMA
+            </h1>
+            <p class="lead mb-4">
+                Join thousands of successful students who have started their journey with us. 
+                Our comprehensive programs and experienced faculty ensure your academic success.
+            </p>
+            <a href="{{ url_for('apply') }}" class="btn btn-primary btn-lg me-3">
+                <i class="fas fa-file-alt me-2"></i>Apply Now
+            </a>
+            <a href="{{ url_for('status') }}" class="btn btn-outline-primary btn-lg">
+                <i class="fas fa-search me-2"></i>Check Status
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-user-graduate fa-3x text-primary mb-3"></i>
+                <h5 class="card-title">Easy Application</h5>
+                <p class="card-text">
+                    Simple and user-friendly online application process. 
+                    Complete your application in just a few minutes.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                <h5 class="card-title">Quick Processing</h5>
+                <p class="card-text">
+                    Fast application processing with real-time status updates. 
+                    Get notified instantly about your application status.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                <h5 class="card-title">Secure Process</h5>
+                <p class="card-text">
+                    Your personal information is protected with industry-standard 
+                    security measures throughout the application process.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-10 mx-auto">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">
+                    <i class="fas fa-info-circle me-2"></i>
+                    How to Apply
+                </h3>
+                <div class="row">
+                    <div class="col-md-3 text-center mb-3">
+                        <div class="step-number bg-primary text-white rounded-circle mx-auto mb-2">1</div>
+                        <h6>Fill Application</h6>
+                        <p class="small">Complete the online application form with your details</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3">
+                        <div class="step-number bg-primary text-white rounded-circle mx-auto mb-2">2</div>
+                        <h6>Upload Documents</h6>
+                        <p class="small">Submit required certificates and mark sheets</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3">
+                        <div class="step-number bg-primary text-white rounded-circle mx-auto mb-2">3</div>
+                        <h6>Get Application ID</h6>
+                        <p class="small">Receive unique ID via email for status tracking</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3">
+                        <div class="step-number bg-primary text-white rounded-circle mx-auto mb-2">4</div>
+                        <h6>Track Status</h6>
+                        <p class="small">Monitor your application progress online</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
